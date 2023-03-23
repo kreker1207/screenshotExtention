@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Screenshot Extension",
+  "version": "1.0",
+  "description": "Take and edit screenshots in your browser.",
+  "icons": {
+    "128": "logo/128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "clipboardWrite",
+    "storage",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": [
+      "src/script.js"
+    ]
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["src/content.js"]
+  }],
+  "browser_action": {
+    "default_popup": "html/popup.html",
+    "default_title": "Screenshot Extension"
+  },
+
+  "web_accessible_resources": [
+    
+        "html/popup.html",
+        "html/screenshot.html",
+        "css/style.css",
+        "css/edit.css",
+        "src/edit.js"
+  ]
+}
